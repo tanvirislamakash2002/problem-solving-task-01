@@ -78,15 +78,36 @@ const rotateMatrixClockwise = (matrix) => {
 function removeDuplicates(str) {
     const seen = {};
     let result = '';
-    
+
     for (let char of str) {
         if (!seen[char]) {
             seen[char] = true;
             result += char;
         }
     }
-    
+
     return result;
 }
 // example
-console.log(removeDuplicates('hello'));
+// console.log(removeDuplicates('hello'));
+
+// problem 6: Find the longest increasing subsequence
+
+function lengthOfLIS(nums) {
+    if (nums.length === 0) return 0;
+    
+    // dp[i] = length of LIS ending at index i
+    const dp = new Array(nums.length).fill(1);
+    let maxLength = 1;
+    
+    for (let i = 1; i < nums.length; i++) {
+        for (let j = 0; j < i; j++) {
+            if (nums[j] < nums[i]) {
+                dp[i] = Math.max(dp[i], dp[j] + 1);
+            }
+        }
+        maxLength = Math.max(maxLength, dp[i]);
+    }
+    
+    return maxLength;
+}
