@@ -178,4 +178,34 @@ function RotateStringByPosition(str, k) {
     return result;
 }
 
-console.log(RotateStringByPosition("hello", 2));
+// console.log(RotateStringByPosition("hello", 2));
+
+// problem 9: Find the missing elements in a consecutive sequence
+
+function findMissingElements(nums) {
+    if (nums.length === 0) return [];
+    
+    const min = Math.min(...nums);
+    const max = Math.max(...nums);
+    const range = max - min + 1;
+    
+    // Create boolean array to mark presence
+    const present = new Array(range).fill(false);
+    
+    // Mark existing numbers
+    for (let num of nums) {
+        present[num - min] = true;
+    }
+    
+    // Collect missing numbers
+    const missing = [];
+    for (let i = 0; i < range; i++) {
+        if (!present[i]) {
+            missing.push(min + i);
+        }
+    }
+    
+    return missing;
+}
+
+// console.log(findMissingElements([10, 11, 13, 14])); 
