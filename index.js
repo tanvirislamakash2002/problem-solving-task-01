@@ -6,7 +6,7 @@ const ReverseWord = (sentence) => {
     const result = reverseWord.join(' ');
     return result
 }
-// example
+
 // console.log(ReverseWord('Hello World'))
 
 // problem 2: Find all pairs with a given sum in an array
@@ -27,7 +27,7 @@ const FindPairs = (arr, target) => {
 
     return pairs;
 }
-// example
+
 // console.log(FindPairs([1, 4, 5, 2, -2], 3))
 
 // problem 3: Check if an array is a palindrome
@@ -43,7 +43,7 @@ const CheckPalindrome = (arr) => {
 
     return true;
 }
-// example
+
 // console.log(CheckPalindrome(([1, 2, 3, 2, 12])))
 
 // problem 4: Rotate a matrix 90 degrees clockwise
@@ -64,7 +64,6 @@ const rotateMatrixClockwise = (matrix) => {
     return matrix;
 }
 
-// example
 // const matrix = [
 //     [1, 2, 3],
 //     [4, 5, 6],
@@ -88,7 +87,6 @@ function removeDuplicates(str) {
 
     return result;
 }
-// example
 // console.log(removeDuplicates('hello'));
 
 // problem 6: Find the longest increasing subsequence
@@ -96,7 +94,6 @@ function removeDuplicates(str) {
 function lengthOfLIS(nums) {
     if (nums.length === 0) return 0;
     
-    // dp[i] = length of LIS ending at index i
     const dp = new Array(nums.length).fill(1);
     let maxLength = 1;
     
@@ -110,4 +107,21 @@ function lengthOfLIS(nums) {
     }
     
     return maxLength;
+}
+
+// console.log(lengthOfLIS([10,9,2,5,3,7,101,18]));
+
+// problem 7: Count the number of vowels in a string
+
+function countVowelsIncludes(str) {
+    const vowels = 'aeiou';
+    let count = 0;
+    
+    for (let char of str.toLowerCase()) {
+        if (vowels.includes(char)) {
+            count++;
+        }
+    }
+    
+    return count;
 }
