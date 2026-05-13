@@ -263,4 +263,28 @@ function MergeSortedArrays(arr1, arr2) {
     return merged;
 }
 
-console.log(MergeSortedArrays([1, 3, 5], [2, 4, 6])); 
+// console.log(MergeSortedArrays([1, 3, 5], [2, 4, 6])); 
+
+// problem 14: Find the longest substring without repeating characters
+
+function lengthOfLongestSubstring(s) {
+    let maxLength = 0;
+    
+    for (let i = 0; i < s.length; i++) {
+        const seen = new Set();
+        let currentLength = 0;
+        
+        for (let j = i; j < s.length; j++) {
+            if (seen.has(s[j])) {
+                break;
+            }
+            seen.add(s[j]);
+            currentLength++;
+            maxLength = Math.max(maxLength, currentLength);
+        }
+    }
+    
+    return maxLength;
+}
+
+// console.log(lengthOfLongestSubstring("abcabcbb"));
