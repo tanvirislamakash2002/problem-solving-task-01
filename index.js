@@ -180,7 +180,7 @@ function RotateStringByPosition(str, k) {
 
 // problem 10: Find the missing elements in a consecutive sequence
 
-function findMissingElements(nums) {
+function FindMissingElements(nums) {
     if (nums.length === 0) return [];
     
     const min = Math.min(...nums);
@@ -203,11 +203,11 @@ function findMissingElements(nums) {
     return missing;
 }
 
-// console.log(findMissingElements([10, 11, 13, 14])); 
+// console.log(FindMissingElements([10, 11, 13, 14])); 
 
 // problem 11: Rotate an array by k positions
 
-function rotateArrayRight(arr, k) {
+function RotateArrayRight(arr, k) {
     if (arr.length === 0) return arr;
     
     k = k % arr.length;
@@ -224,4 +224,21 @@ function rotateArrayRight(arr, k) {
 }
 
 // let arr1 = [1, 2, 3, 4, 5];
-// console.log(rotateArrayRight(arr1, 2)); 
+// console.log(RotateArrayRight(arr1, 2)); 
+
+// problem 12: Find the missing number in an array
+
+function FindMissingNumber(nums) {
+    nums.sort((a, b) => a - b);
+    const n = nums.length + 1;
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== i + 1) {
+            return i + 1;
+        }
+    }
+    
+    return n;
+}
+
+// console.log(FindMissingNumber([1, 2, 3, 4, 5]))
