@@ -1,1 +1,1 @@
-## This file Repository contains some common js problems and their solution
+## This Repository contains some common js problems and their solution

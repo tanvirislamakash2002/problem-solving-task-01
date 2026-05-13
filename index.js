@@ -134,7 +134,6 @@ function majorityElement(nums) {
     let candidate = null;
     let count = 0;
 
-    // Phase 1: Find potential candidate
     for (let num of nums) {
         if (count === 0) {
             candidate = num;
@@ -146,7 +145,6 @@ function majorityElement(nums) {
         }
     }
 
-    // Phase 2: Verify candidate actually is majority
     count = 0;
     for (let num of nums) {
         if (num === candidate) {
@@ -180,7 +178,7 @@ function RotateStringByPosition(str, k) {
 
 // console.log(RotateStringByPosition("hello", 2));
 
-// problem 9: Find the missing elements in a consecutive sequence
+// problem 10: Find the missing elements in a consecutive sequence
 
 function findMissingElements(nums) {
     if (nums.length === 0) return [];
@@ -189,15 +187,12 @@ function findMissingElements(nums) {
     const max = Math.max(...nums);
     const range = max - min + 1;
     
-    // Create boolean array to mark presence
     const present = new Array(range).fill(false);
     
-    // Mark existing numbers
     for (let num of nums) {
         present[num - min] = true;
     }
     
-    // Collect missing numbers
     const missing = [];
     for (let i = 0; i < range; i++) {
         if (!present[i]) {
@@ -209,3 +204,24 @@ function findMissingElements(nums) {
 }
 
 // console.log(findMissingElements([10, 11, 13, 14])); 
+
+// problem 11: Rotate an array by k positions
+
+function rotateArrayRight(arr, k) {
+    if (arr.length === 0) return arr;
+    
+    k = k % arr.length;
+    
+    for (let i = 0; i < k; i++) {
+        const last = arr[arr.length - 1];
+        for (let j = arr.length - 1; j > 0; j--) {
+            arr[j] = arr[j - 1];
+        }
+        arr[0] = last;
+    }
+    
+    return arr;
+}
+
+// let arr1 = [1, 2, 3, 4, 5];
+// console.log(rotateArrayRight(arr1, 2)); 
