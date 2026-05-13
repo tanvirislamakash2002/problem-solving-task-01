@@ -93,10 +93,10 @@ function removeDuplicates(str) {
 
 function lengthOfLIS(nums) {
     if (nums.length === 0) return 0;
-    
+
     const dp = new Array(nums.length).fill(1);
     let maxLength = 1;
-    
+
     for (let i = 1; i < nums.length; i++) {
         for (let j = 0; j < i; j++) {
             if (nums[j] < nums[i]) {
@@ -105,7 +105,7 @@ function lengthOfLIS(nums) {
         }
         maxLength = Math.max(maxLength, dp[i]);
     }
-    
+
     return maxLength;
 }
 
@@ -116,13 +116,13 @@ function lengthOfLIS(nums) {
 function CountVowels(str) {
     const vowels = 'aeiou';
     let count = 0;
-    
+
     for (let char of str.toLowerCase()) {
         if (vowels.includes(char)) {
             count++;
         }
     }
-    
+
     return count;
 }
 
@@ -133,7 +133,7 @@ function CountVowels(str) {
 function majorityElement(nums) {
     let candidate = null;
     let count = 0;
-    
+
     // Phase 1: Find potential candidate
     for (let num of nums) {
         if (count === 0) {
@@ -145,7 +145,7 @@ function majorityElement(nums) {
             count--;
         }
     }
-    
+
     // Phase 2: Verify candidate actually is majority
     count = 0;
     for (let num of nums) {
@@ -153,10 +153,29 @@ function majorityElement(nums) {
             count++;
         }
     }
-    
+
     return count > nums.length / 2 ? candidate : null;
 }
 
 // console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
 
+// problem 9: Rotate a string by k positions
 
+function RotateStringByPosition(str, k) {
+    if (str.length === 0) return str;
+
+    k = k % str.length;
+    let result = '';
+
+    for (let i = str.length - k; i < str.length; i++) {
+        result += str[i];
+    }
+
+    for (let i = 0; i < str.length - k; i++) {
+        result += str[i];
+    }
+
+    return result;
+}
+
+console.log(RotateStringByPosition("hello", 2));
