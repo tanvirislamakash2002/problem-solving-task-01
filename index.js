@@ -113,7 +113,7 @@ function lengthOfLIS(nums) {
 
 // problem 7: Count the number of vowels in a string
 
-function countVowelsIncludes(str) {
+function CountVowels(str) {
     const vowels = 'aeiou';
     let count = 0;
     
@@ -125,3 +125,38 @@ function countVowelsIncludes(str) {
     
     return count;
 }
+
+// console.log(CountVowels("hello")); 
+
+// problem 8: Find the majority element in an array
+
+function majorityElement(nums) {
+    let candidate = null;
+    let count = 0;
+    
+    // Phase 1: Find potential candidate
+    for (let num of nums) {
+        if (count === 0) {
+            candidate = num;
+            count = 1;
+        } else if (num === candidate) {
+            count++;
+        } else {
+            count--;
+        }
+    }
+    
+    // Phase 2: Verify candidate actually is majority
+    count = 0;
+    for (let num of nums) {
+        if (num === candidate) {
+            count++;
+        }
+    }
+    
+    return count > nums.length / 2 ? candidate : null;
+}
+
+// console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
+
+
